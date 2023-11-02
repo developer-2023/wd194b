@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>constructor without new</title>
+</head>
+<body>
+    
+    <script>
+        function Car (model, color) {
+            // protection against calling constructor without new operator
+            if (!(this instanceof Car)) {
+                return new Car(model, color);
+            };
+            this.model = model;
+            this.color = color;
+            this.getCarInfo = function () {
+                console.log(this.model, this.color);
+            }
+        }
+
+        let car001 = new Car("Escort", "red");
+        car001.getCarInfo();
+    </script>
+</body>
+</html>
